@@ -139,9 +139,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     self.state_tripwire = StateTripwire({"connections": 0, "error": None})
 
     # Table configuration
-    self.tableWidget_path.setColumnCount(5)
+    self.tableWidget_path.setColumnCount(6)
     self.tableWidget_path.setHorizontalHeaderLabels([
       "System",
+      "Region",
       "Cls",
       "Sec",
       "Instructions",
@@ -514,7 +515,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
       '▲': QtGui.QColor(242, 212, 212),
     }.get(sclass, QtGui.QColor(220, 220, 220))
 
-  def add_data_to_table(self, route):
+    def add_data_to_table(self, route):
     self.tableWidget_path.setRowCount(len(route))
 
     for route_step_id, route_step in enumerate(route):
